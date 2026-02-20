@@ -1,0 +1,69 @@
+div.skillList {
+	display: flex;
+	flex-flow: row wrap;
+	gap: 1rem;
+	margin-top: 1rem;
+
+	.skillCard {
+		flex: 1;
+		min-width: 300px;
+		max-width: calc(50% - 1rem);
+		border: none;
+		border-radius: 12px;
+		background-color: white;
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+		div.skillImage {
+			width: 100%;
+			height: 200px;
+			background-size: cover;
+			background-position: center;
+			background-color: #357ab8;
+			background-image: url("/default-thumbnail.png");
+			border-top-left-radius: 12px;
+			border-top-right-radius: 12px;
+		}
+
+		div.skillContent {
+			padding: 1rem;
+			min-height: 100px;
+			position: relative;
+
+			h2 {
+				margin: 0 0 0.5rem 0;
+				font-size: 1.25rem;
+
+				>a {
+					color: #4a90e2;
+					text-decoration: none;
+
+					&:hover {
+						text-decoration: underline;
+						transition: text-decoration 0.2s ease;
+						transition-duration: 0.1s;
+					}
+				}
+			}
+
+			p {
+				color: #555;
+			}
+		}
+	}
+}
+
+a.createSkillLink {
+	display: inline-block;
+	margin-top: 1rem;
+	padding: 0.5rem 1rem;
+	background-color: #4a90e2;
+	color: white;
+	border-radius: 4px;
+	text-decoration: none;
+
+	&:hover {
+		background-color: #357ab8;
+		transition: background-color 0.2s ease;
+		transition-duration: 0.1s;
+	}
+}

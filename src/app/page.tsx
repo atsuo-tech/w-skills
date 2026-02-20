@@ -1,66 +1,31 @@
-import Image from "next/image";
+import { IdeaImage } from "@/component/top-page/ideaImage";
 import styles from "./page.module.css";
+import { EyeCatch } from "@/component/top-page/eyeCatch";
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <main className={styles.container}>
+      <EyeCatch />
+
+      <div className={styles.content}>
+        <h2>Our Idea</h2>
+        <p>
+          W-PCP では、各個人がゲーム制作、Webデザイン、機械学習など、様々な分野のスキルを持っています。
+          <br />
+          しかし、これらのスキルは教える際になかなか個人の時間が取れなかったり、共有する機会が少なかったりして、部内で十分に活用されていないことがあります。
+          <br />
+          そこで、W-Skills では、部内のメンバーが持つスキルを共有し、いつでも互いに学び合うことができるプラットフォームを提供します。
+        </p>
+
+        <IdeaImage />
+
+        <h2>機能</h2>
+        <ul>
+          <li>スキルの作成：メンバーは自分のスキルを登録できます。スキルには、名前、説明、関連するタグなどを付けることができます。</li>
+          <li>スキルの閲覧：メンバーは他のメンバーが登録したスキルを閲覧できます。これにより、部内の知見を共有し、新しいスキルを学ぶことができます。</li>
+          <li>スキルの検索：メンバーは特定のスキルやタグで検索することができます。これにより、必要なスキルを素早く見つけることができます。</li>
+        </ul>
+      </div>
+    </main>
   );
 }

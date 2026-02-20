@@ -1,0 +1,128 @@
+div.container {
+	display: grid;
+	grid-template-columns: 0 1fr;
+	transition: grid-template-columns 0.3s ease;
+
+	nav.navbar {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 1000;
+		background-color: white;
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+		>h1 {
+			display: inline-block;
+			padding: 0 1rem;
+			font-weight: 600;
+		}
+
+		span.username {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			right: 2rem;
+			margin: auto;
+			height: max-content;
+			font-weight: 500;
+		}
+	}
+
+	div.sidebar {
+		position: fixed;
+		top: 0;
+		z-index: 1000;
+		width: 250px;
+		height: 100vh;
+		padding: 0 1rem;
+		box-sizing: border-box;
+		transform: translate(-250px);
+		transition: transform 0.3s ease;
+		box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+		background-color: white;
+
+		h2 {
+			font-weight: 600;
+		}
+
+		nav {
+			ul {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+				padding-top: 2rem;
+
+				li {
+					padding: .5rem;
+					border-radius: 8px;
+					box-sizing: border-box;
+
+					&:hover {
+						background-color: #f0f0f0;
+
+						a {
+							color: #3490e2;
+						}
+					}
+
+					a {
+						display: block;
+						height: 100%;
+						width: 100%;
+						text-decoration: none;
+						color: #333;
+						transition: background-color 0.3s ease;
+					}
+				}
+			}
+
+			ul.accountMenu {
+				position: absolute;
+				bottom: 1rem;
+				width: calc(100% - 2rem);
+
+				li.logout {
+					a {
+						color: #e3342f;
+					}
+				}
+			}
+		}
+	}
+
+	div.toggleButton {
+		position: fixed;
+		bottom: 1rem;
+		width: 275px;
+		text-align: right;
+		z-index: 999;
+		background-color: #3490e2;
+		color: white;
+		border: none;
+		padding: 0.5rem 1rem;
+		border-radius: 4px;
+		cursor: pointer;
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+		transform: translateX(-250px);
+		transition: transform 0.3s ease;
+	}
+
+	div.content {
+		padding: 2rem 4rem;
+		margin-top: 4rem;
+		box-sizing: border-box;
+	}
+}
+
+div.container.open {
+	grid-template-columns: 250px 1fr;
+
+	div.sidebar {
+		transform: translate(0);
+	}
+
+	div.toggleButton {
+		transform: translateX(0);
+	}
+}
