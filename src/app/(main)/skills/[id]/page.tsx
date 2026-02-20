@@ -56,9 +56,18 @@ export default async function SkillDetailPage(
 			{
 				currentUser?.uniqueId === skill.authorUniqueId && (
 					<div>
-						<span>公開設定：{skill.published ? "公開中" : "非公開"}</span>
-						&nbsp;|&nbsp;
-						<Link href={`/skills/${id}/edit`}>スキルを編集</Link>
+						{
+							!skill.published && (
+								<span style={{ color: "red" }}>
+									このスキルは非公開です。<br />
+									公開するには、スキルを編集して「保存して公開」ボタンをクリックしてください。
+								</span>
+							)
+						}
+						<br />
+						<Link href={`/skills/${id}/edit`}>
+							スキルを編集
+						</Link>
 					</div>
 				)
 			}

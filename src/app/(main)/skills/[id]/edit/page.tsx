@@ -78,13 +78,8 @@ export default async function SkillEditPage(
 					<label htmlFor="skillDescription">スキルの説明</label>
 					<textarea id="skillDescription" name="skillDescription" defaultValue={skill.description} required></textarea>
 				</div>
-				<div>
-					<select name="published" id="published" defaultValue={skill.published ? "true" : "false"}>
-						<option value="true">公開</option>
-						<option value="false">非公開</option>
-					</select>
-				</div>
-				<button type="submit">保存</button>
+				<button type="submit" name="published" value="false">保存して非公開</button>
+				<button type="submit" name="published" value="true">保存して公開</button>
 				&nbsp;
 				<Link href={`/skills/${id}`}>キャンセル</Link>
 			</form>

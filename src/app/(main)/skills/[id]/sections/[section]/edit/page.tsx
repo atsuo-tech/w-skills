@@ -61,6 +61,7 @@ export default async function SectionPage(
 						data: {
 							name: sectionName,
 							content: content,
+							published: formData.get("published") === "true",
 						},
 					});
 					redirect(`/skills/${id}/sections/${section}`);
@@ -74,7 +75,8 @@ export default async function SectionPage(
 					<label htmlFor="content">内容</label>
 					<Editor defaultValue={skill.sections[0].content} />
 				</div>
-				<button type="submit">保存</button>
+				<button type="submit" name="published" value="true">保存して公開</button>
+				<button type="submit" name="published" value="false">保存して非公開</button>
 			</form>
 		</div>
 	)

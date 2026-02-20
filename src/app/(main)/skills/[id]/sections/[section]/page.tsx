@@ -57,13 +57,23 @@ export default async function SectionPage(
 			<p>
 				作成日: {skill.sections[0].createdAt.toLocaleDateString()}<br />
 				最終更新日: {skill.sections[0].updatedAt.toLocaleDateString()}
-				{!skill.published && " (非公開)"}
 			</p>
 			{
 				currentUser?.uniqueId === skill.authorUniqueId && (
-					<Link href={`/skills/${id}/sections/${section}/edit`}>
-						セクションを編集
-					</Link>
+					<div>
+						{
+							!skill.sections[0].published && (
+								<span style={{ color: "red" }}>
+									このセクションは非公開です。<br />
+									公開するには、セクションを編集して「保存して公開」ボタンをクリックしてください。
+								</span>
+							)
+						}
+						<br />
+						<Link href={`/skills/${id}/sections/${section}/edit`}>
+							セクションを編集
+						</Link>
+					</div>
 				)
 			}
 			<Markdown md={skill.sections[0].content} />
