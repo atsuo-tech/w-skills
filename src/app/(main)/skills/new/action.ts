@@ -22,7 +22,8 @@ export async function createSkill(formData: FormData) {
 
 	const tags = selectedTags.split(",");
 
-	if (tags.length === 0) {
+	if (selectedTags == "") {
+		tags.pop();
 		tags.push("65535"); // その他
 	}
 
