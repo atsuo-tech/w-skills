@@ -13,6 +13,8 @@ export default async function SkillDetailPage(
 
 	const { id } = await params;
 
+	const user = await getCurrentUser();
+
 	const skill = await wSkillsPrisma.skill.findUnique({
 		where: {
 			id: parseInt(id),
@@ -31,9 +33,16 @@ export default async function SkillDetailPage(
 				},
 			},
 			sections: {
+				where: {
+					OR: [
+						{ published: true },
+						{ skill: { authorUniqueId: user?.uniqueId } },
+					],
+				},
 				select: {
 					id: true,
 					name: true,
+					published: true,
 				},
 			}
 		},
@@ -90,6 +99,15 @@ export default async function SkillDetailPage(
 					<ul>
 						{skill.sections.map(section => (
 							<li key={section.id}>
+								{
+									skill.authorUniqueId === currentUser?.uniqueId && (
+										section.published ? (
+											<span style={{ color: "green" }}>公開：</span>
+										) : (
+											<span style={{ color: "red" }}>非公開：</span>
+										)
+									)
+								}
 								<Link href={`/skills/${id}/sections/${section.id}`}>
 									{section.name}
 								</Link>

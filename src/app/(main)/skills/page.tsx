@@ -24,6 +24,7 @@ export default async function SkillsPage() {
 			id: true,
 			name: true,
 			description: true,
+			published: true,
 			tags: {
 				select: {
 					id: true,

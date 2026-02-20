@@ -11,7 +11,7 @@ export default function SkillsSearcher(
 		skills,
 	}: {
 		tags: { id: number; name: string }[];
-		skills: { id: number; name: string; description: string, tags: { id: number; name: string }[] }[];
+		skills: { id: number; name: string; published: boolean; description: string, tags: { id: number; name: string }[] }[];
 	},
 ) {
 
@@ -57,6 +57,13 @@ export default function SkillsSearcher(
 									<div className={styles.skillContent}>
 										<h2>
 											<Link href={`/skills/${skill.id}`} className={styles.skillLink}>
+												{
+													!skill.published && (
+														<span style={{ color: "red" }}>
+															[非公開]&nbsp;
+														</span>
+													)
+												}
 												{skill.name}
 											</Link>
 										</h2>
